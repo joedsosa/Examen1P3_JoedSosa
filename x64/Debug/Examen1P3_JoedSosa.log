@@ -1,5 +1,13 @@
-﻿  Examen1P3_JoedSosa.cpp
-  Neumaticos.cpp
-  Radiador.cpp
+﻿  Auto.cpp
+C:\Users\joeds\OneDrive\Escritorio\Progra III\Examen1P3_JoedSosa\Auto.h(25,17): error C2535: 'void Auto::OrdenarAutos(std::vector<Auto,std::allocator<Auto>> &,const std::string &)': member function already defined or declared
+C:\Users\joeds\OneDrive\Escritorio\Progra III\Examen1P3_JoedSosa\Auto.h(19,17): message : see declaration of 'Auto::OrdenarAutos'
+  Examen1P3_JoedSosa.cpp
+C:\Users\joeds\OneDrive\Escritorio\Progra III\Examen1P3_JoedSosa\Auto.h(25,17): error C2535: 'void Auto::OrdenarAutos(std::vector<Auto,std::allocator<Auto>> &,const std::string &)': member function already defined or declared
+C:\Users\joeds\OneDrive\Escritorio\Progra III\Examen1P3_JoedSosa\Auto.h(19,17): message : see declaration of 'Auto::OrdenarAutos'
+C:\Users\joeds\OneDrive\Escritorio\Progra III\Examen1P3_JoedSosa\Examen1P3_JoedSosa.cpp(31,49): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\joeds\OneDrive\Escritorio\Progra III\Examen1P3_JoedSosa\Examen1P3_JoedSosa.cpp(32,49): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\joeds\OneDrive\Escritorio\Progra III\Examen1P3_JoedSosa\Examen1P3_JoedSosa.cpp(33,50): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\joeds\OneDrive\Escritorio\Progra III\Examen1P3_JoedSosa\Examen1P3_JoedSosa.cpp(35,55): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\joeds\OneDrive\Escritorio\Progra III\Examen1P3_JoedSosa\Examen1P3_JoedSosa.cpp(36,55): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\joeds\OneDrive\Escritorio\Progra III\Examen1P3_JoedSosa\Examen1P3_JoedSosa.cpp(37,56): warning C4305: 'argument': truncation from 'double' to 'float'
   Generating Code...
-  Examen1P3_JoedSosa.vcxproj -> C:\Users\joeds\OneDrive\Escritorio\Progra III\Examen1P3_JoedSosa\x64\Debug\Examen1P3_JoedSosa.exe

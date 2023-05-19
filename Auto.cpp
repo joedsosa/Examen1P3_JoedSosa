@@ -1,6 +1,7 @@
 #include "Auto.h"
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 Auto::Auto(std::string marca, std::string modelo, int velMax, int caballosFuerza, float aceleracion) {
     this->marca = marca;
@@ -10,7 +11,7 @@ Auto::Auto(std::string marca, std::string modelo, int velMax, int caballosFuerza
     this->aceleracion = aceleracion;
 }
 
-void Auto::AgregarComponentes(std::vector<Ciguenal*>& ciguenales, std::vector<Radiador*>& radiadores, std::vector<Neumaticos*>& neumaticos, std::vector<Diferencial*>& diferenciales, std::vector<CajaDeCambios*>& cajasCambios) {
+void Auto::AgregarComponentes(vector<Ciguenal*>& ciguenales, vector<Radiador*>& radiadores, vector<Neumaticos*>& neumaticos, vector<Diferencial*>& diferenciales, vector<CajaDeCambios*>& cajasCambios) {
     for (Ciguenal* ciguenal : ciguenales) {
         this->velMax += ciguenal->GetVelMax();
         this->caballosFuerza += ciguenal->GetCaballosFuerza();
@@ -33,12 +34,32 @@ Auto:: ~Auto() {
     delete cdc;
 }
 
-void Auto::MostrarInfo() {
-    std::cout << "Marca: " << marca << std::endl;
-    std::cout << "Modelo: " << modelo << std::endl;
-    std::cout << "Velocidad Máxima: " << velMax << " km/h" << std::endl;
-    std::cout << "Caballos de Fuerza: " << caballosFuerza << std::endl;
-    std::cout << "Aceleración (0-100 km/h): " << aceleracion << " segundos" << std::endl;
+string Auto::getMarca() const {
+    return marca;
+}
+
+string Auto::getModelo() const {
+    return modelo;
+}
+
+int Auto::getVelMax() const {
+    return velMax;
+}
+
+int Auto::getCaballosFuerza() const {
+    return caballosFuerza;
+}
+
+float Auto::getAceleracion() const {
+    return aceleracion;
+}
+
+void Auto::MostrarInfo() const {
+    cout << "Marca: " << marca << endl;
+    cout << "Modelo: " << modelo << endl;
+    cout << "Velocidad Máxima: " << velMax << " km/h" << endl;
+    cout << "Caballos de Fuerza: " << caballosFuerza << endl;
+    cout << "Aceleración (0-100 km/h): " << aceleracion << " segundos" << endl;
 }
 void Auto::ModificarComponentes(vector<Ciguenal*>& ciguenales, vector<Radiador*>& radiadores,
     vector<Neumaticos*>& neumaticos, vector<Diferencial*>& diferenciales,
@@ -57,8 +78,8 @@ void Auto::ModificarComponentes(vector<Ciguenal*>& ciguenales, vector<Radiador*>
     switch (opcion) {
     case 1: {
         int ciguenalIndex;
-        std::cout << "Seleccione el número de cigüeñal a utilizar: ";
-        std::cin >> ciguenalIndex;
+        cout << "Seleccione el número de cigüeñal a utilizar: ";
+        cin >> ciguenalIndex;
         ciguenalIndex--;
         if (ciguenalIndex >= 0 && ciguenalIndex < ciguenales.size()) {
             Ciguenal* ciguenalSeleccionado = ciguenales[ciguenalIndex];
@@ -66,14 +87,14 @@ void Auto::ModificarComponentes(vector<Ciguenal*>& ciguenales, vector<Radiador*>
             caballosFuerza += ciguenalSeleccionado->GetCaballosFuerza();
         }
         else {
-            std::cout << "Índice de cigüeñal inválido." << std::endl;
+            cout << "Índice de cigüeñal inválido." << endl;
         }
         break;
     }
     case 2: {
         int radiadorIndex;
-        std::cout << "Seleccione el número de radiador a utilizar: ";
-        std::cin >> radiadorIndex;
+        cout << "Seleccione el número de radiador a utilizar: ";
+        cin >> radiadorIndex;
         radiadorIndex--;
 
         if (radiadorIndex >= 0 && radiadorIndex < radiadores.size()) {
@@ -81,14 +102,14 @@ void Auto::ModificarComponentes(vector<Ciguenal*>& ciguenales, vector<Radiador*>
             caballosFuerza += radiadorSeleccionado->GetCaballosFuerza();
         }
         else {
-            std::cout << "Índice de radiador inválido." << std::endl;
+            cout << "Índice de radiador inválido." << endl;
         }
         break;
     }
     case 3: {
         int neumaticosIndex;
-        std::cout << "Seleccione el número de neumáticos a utilizar: ";
-        std::cin >> neumaticosIndex;
+        cout << "Seleccione el número de neumáticos a utilizar: ";
+        cin >> neumaticosIndex;
         neumaticosIndex--;
 
         if (neumaticosIndex >= 0 && neumaticosIndex < neumaticos.size()) {
@@ -96,7 +117,7 @@ void Auto::ModificarComponentes(vector<Ciguenal*>& ciguenales, vector<Radiador*>
             aceleracion -= neumaticosSeleccionados->GetAceleracion();
         }
         else {
-            std::cout << "Índice de neumáticos inválido." << std::endl;
+            cout << "Índice de neumáticos inválido." << endl;
         }
         break;
     }case 4: {
@@ -110,7 +131,7 @@ void Auto::ModificarComponentes(vector<Ciguenal*>& ciguenales, vector<Radiador*>
             aceleracion -= diferencialSeleccionado->GetAceleracion();
         }
         else {
-            cout << "Índice de diferencial inválido." << std::endl;
+            cout << "Índice de diferencial inválido." << endl;
         }
         break;
     }
@@ -139,3 +160,67 @@ void Auto::ModificarComponentes(vector<Ciguenal*>& ciguenales, vector<Radiador*>
 
 
 }
+void Auto::OrdenarAutos(vector<Auto>& autos, const string& criterio) {
+        sort(autos.begin(), autos.end(), [&criterio](const Auto& a, const Auto& b) {
+        if (criterio == "velocidad") {
+            return a.velMax > b.velMax;
+        }
+        else if (criterio == "caballos") {
+            return a.caballosFuerza > b.caballosFuerza;
+        }
+        else if (criterio == "aceleracion") {
+            return a.aceleracion < b.aceleracion;
+        }
+        else {
+            return false;
+        }
+        });
+}
+float Auto::CalcularTiempoAceleracion() const {
+    return (velMax) / aceleracion;
+}
+
+float Auto::CalcularDistanciaAceleracion() const {
+    float ta = CalcularTiempoAceleracion();
+    return 0.5f * aceleracion * ta * ta;
+}
+
+float Auto::CalcularTiempoVelocidadMaxima(float distancia) const {
+    float da = CalcularDistanciaAceleracion();
+    return (da - distancia) / velMax;
+}
+
+float Auto::CalcularTiempoTotal(float distancia) const {
+    return CalcularTiempoAceleracion();
+        CalcularTiempoVelocidadMaxima(distancia);
+        
+}
+string Auto::DeterminarGanador(const Auto& auto1, const Auto& auto2, float distancia) {
+    float tiempoAuto1 = auto1.CalcularTiempoTotal(distancia);
+    float tiempoAuto2 = auto2.CalcularTiempoTotal(distancia);
+    if (tiempoAuto1 < tiempoAuto2) {
+        return auto1.marca + " " + auto1.modelo;
+    }
+    else if (tiempoAuto2 < tiempoAuto1) {
+        return auto2.marca + " " + auto2.modelo;
+    }
+    else {
+        return "Empate";
+    }
+    }
+    void Auto::RealizarCarrea(const Auto& otroAuto, float distancia) const {
+        cout << "Comienza la carrera!" << endl;
+
+        float tiempoAuto1 = aceleracion * distancia;
+        float tiempoAuto2 = otroAuto.aceleracion * distancia;
+
+        if (tiempoAuto1 < tiempoAuto2) {
+            cout << "¡Gana el Auto 1!" << endl;
+        }
+        else if (tiempoAuto2 < tiempoAuto1) {
+            cout << "¡Gana el Auto 2!" << endl;
+        }
+        else {
+            cout << "¡Es un empate!" << endl;
+        }
+    }
