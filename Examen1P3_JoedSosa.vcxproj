@@ -127,7 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Auto.cpp" />
+    <ClCompile Include="CajaDeCambios.cpp" />
+    <ClCompile Include="Ciguenal.cpp" />
+    <ClCompile Include="Diferencial.cpp" />
     <ClCompile Include="Examen1P3_JoedSosa.cpp" />
+    <ClCompile Include="Neumaticos.cpp" />
+    <ClCompile Include="Radiador.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Auto.h" />
+    <ClInclude Include="CajaDeCambios.h" />
+    <ClInclude Include="Ciguenal.h" />
+    <ClInclude Include="Diferencial.h" />
+    <ClInclude Include="Neumaticos.h" />
+    <ClInclude Include="Radiador.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

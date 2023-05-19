@@ -18,5 +18,43 @@
     <ClCompile Include="Examen1P3_JoedSosa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Ciguenal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Radiador.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Neumaticos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Diferencial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CajaDeCambios.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Auto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ciguenal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Radiador.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Neumaticos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Diferencial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CajaDeCambios.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Auto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
