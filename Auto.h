@@ -27,7 +27,7 @@ public:
     float CalcularDistanciaAceleracion() const;
     float CalcularTiempoVelocidadMaxima(float distancia) const;
     float CalcularTiempoTotal(float distancia) const;
-    static std::string DeterminarGanador(const Auto& auto1, const Auto& auto2, float distancia);
+    static string DeterminarGanador(const Auto& auto1, const Auto& auto2, float distancia);
     void RealizarCarrea(const Auto& otroAuto, float distancia) const;
     ~Auto();
 private:
